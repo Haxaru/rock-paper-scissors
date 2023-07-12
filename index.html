@@ -17,6 +17,46 @@
       }
 
       console.log(getComputerChoice());
+
+      //this displays the choices are being generated correctly.
+
+      function playRound(playerSelection, computerSelection) {
+        if (playerSelection === "Rock" && computerSelection === "Paper") {
+          alert("You lose! Paper beats Rock!");
+        } else if (
+          playerSelection === "Rock" &&
+          computerSelection === "Scissors"
+        ) {
+          alert("You win! Rock beats Scissors!");
+        } else if (
+          playerSelection === "Paper" &&
+          computerSelection === "Scissors"
+        ) {
+          alert("You lose! Scissors beats Paper!");
+        } else if (
+          playerSelection === "Paper" &&
+          computerSelection === "Rock"
+        ) {
+          alert("You win! Paper beats Rock!");
+        } else if (
+          playerSelection === "Scissors" &&
+          computerSelection === "Rock"
+        ) {
+          alert("You lose! Rock beats Scissors!");
+        } else if (
+          playerSelection === "Scissors" &&
+          computerSelection === "Paper"
+        ) {
+          alert("You win! Scissors beats Paper!");
+        } else {
+          alert("It's a tie!");
+        }
+      }
+
+      const playerSelection = "Paper";
+      const computerSelection = getComputerChoice();
+
+      playRound(playerSelection, computerSelection);
     </script>
   </body>
 </html>
