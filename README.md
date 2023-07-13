@@ -1,1 +1,11 @@
 # rock-paper-scissors
+
+I created a rock paper scissors game without a UI as of 7.13.23
+
+To play the game, type your choices into the prompt, then right click and inspect the console. There, you will see the results of the game.
+
+Refresh to play again.
+
+A big thanks to the people on Discord (The Odin Project server) for guiding me in the right direction when I was unsure of what to do.
+
+I hope you enjoy this little game I created! :)
