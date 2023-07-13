@@ -7,7 +7,7 @@
   </head>
   <body>
     <script>
-      const computerChoice = ["Rock", "Paper", "Scissors"];
+      const computerChoice = ["rock", "paper", "scissors"];
 
       function getComputerChoice() {
         const selected =
@@ -21,7 +21,11 @@
       let totalRounds = 0;
 
       function playRound(playerSelection, computerSelection) {
-        playerSelection = prompt("Choose rock, paper, or scissors: ", "");
+        playerSelection = prompt(
+          "Choose rock, paper, or scissors: ",
+          ""
+        ).toLowerCase();
+        computerSelection = getComputerChoice();
 
         if (playerSelection === "rock" && computerSelection === "paper") {
           computerPoints++;
@@ -62,25 +66,37 @@
           playerPoints++;
           totalRounds++;
           return "You win! Scissors beats Paper!";
-        } else {
+        } else if (playerSelection === computerSelection) {
           totalRounds++;
           return "It's a tie!";
+        } else {
+          totalRounds++;
+          return "Input not recognized! Defaulting to a tie!";
         }
       }
 
       function game() {
-        playRound();
-        playRound();
-        playRound();
-        playRound();
-      }
+        console.log(playRound());
+        console.log(playRound());
+        console.log(playRound());
+        console.log(playRound());
+        console.log(playRound());
 
-      const computerSelection = getComputerChoice();
-      console.log(playRound());
-      console.log(getComputerChoice());
-      console.log(playerPoints);
-      console.log(computerPoints);
-      console.log(totalRounds);
+        if (playerPoints > computerPoints) {
+          console.log(
+            `Yay! You win with a score of ${playerPoints} to ${computerPoints}!`
+          );
+        } else if (playerPoints === computerPoints) {
+          console.log(
+            `That was so close! It's a tie with a score of ${playerPoints} to ${computerPoints}!`
+          );
+        } else {
+          console.log(
+            `Sorry! You lose with a score of ${playerPoints} to ${computerPoints}!`
+          );
+        }
+      }
+      game();
     </script>
   </body>
 </html>
