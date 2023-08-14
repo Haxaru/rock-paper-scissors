@@ -13,3 +13,7 @@ I hope you enjoy this little game I created! :)
 An update:
 
 I was finally able to add a very simple ui to my rock paper scissors game. The thing I struggled with most was adding the event listener to the buttons and making them represent the player selection. After that, the rest of the project was finished easily.
+
+Update pt.3:
+
+I added an incredibly simple ui. I didn't struggle with too much but I am happy I was able to dabble in css using flexbox and practice simple styling. :)

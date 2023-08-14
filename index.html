@@ -3,115 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="scripts.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Handjet&family=Inconsolata&display=swap"
+      rel="stylesheet"
+    />
     <title>Document</title>
   </head>
   <body>
-    <button class="rock">Rock</button>
-    <button class="paper">Paper</button>
-    <button class="scissors">Scissors</button>
-    <div class="container">
-      <p class="results"></p>
+    <h1>Let's Play: Rock Paper Scissors!</h1>
+    <div class="pvc">
+      <p>Player</p>
+      <p>vs</p>
+      <p>Computer</p>
+    </div>
+
+    <div class="points">
       <p class="player"></p>
       <p class="computer"></p>
     </div>
-    <script>
-      function getComputerChoice() {
-        const computerChoice = ["rock", "paper", "scissors"];
-
-        return computerChoice[
-          Math.floor(Math.random() * computerChoice.length)
-        ];
-      }
-
-      // The above generates the computer choice and logs it
-
-      let playerPoints = 0;
-      let computerPoints = 0;
-      let totalRounds = 0;
-
-      // The above is the starting points for the game
-
-      const results = document.querySelector(".results");
-      const playerDisplay = document.querySelector(".player");
-      const computerDisplay = document.querySelector(".computer");
-
-      // The linking to the classes
-
-      function playRound(playerSelection, computerSelection) {
-        playerSelection;
-        computerSelection = getComputerChoice();
-
-        if (playerSelection == "rock" && computerSelection === "paper") {
-          computerPoints++;
-          results.textContent = "You lose! Paper beats Rock!";
-        } else if (
-          playerSelection == "rock" &&
-          computerSelection === "scissors"
-        ) {
-          playerPoints++;
-          results.textContent = "You win! Rock beats Scissors!";
-        } else if (
-          playerSelection === "paper" &&
-          computerSelection === "scissors"
-        ) {
-          computerPoints++;
-          results.textContent = "You lose! Scissors beats Paper!";
-        } else if (
-          playerSelection === "paper" &&
-          computerSelection === "rock"
-        ) {
-          playerPoints++;
-          results.textContent = "You win! Paper beats Rock!";
-        } else if (
-          playerSelection === "scissors" &&
-          computerSelection === "rock"
-        ) {
-          computerPoints++;
-          results.textContent = "You lose! Rock beats Scissors!";
-        } else if (
-          playerSelection === "scissors" &&
-          computerSelection === "paper"
-        ) {
-          playerPoints++;
-          results.textContent = "You win! Scissors beats Paper!";
-        } else if (playerSelection === computerSelection) {
-          results.textContent = "It's a tie!";
-        } else {
-          results.textContent = "Input not recognized! Defaulting to a tie!";
-        }
-        totalRounds++;
-
-        playerDisplay.textContent = playerPoints;
-        computerDisplay.textContent = computerPoints;
-
-        if (playerPoints === 5) {
-          results.textContent = `Yay! You win with a score of ${playerPoints} to ${computerPoints}!`;
-        } else if (computerPoints === 5) {
-          results.textContent = `Sorry! You lose with a score of ${playerPoints} to ${computerPoints}!`;
-        }
-      }
-
-      // The above relays the outcome of the game.
-
-      const rock = document.querySelector(".rock");
-      rock.addEventListener("click", () => {
-        playRound("rock");
-      });
-
-      const paper = document.querySelector(".paper");
-      paper.addEventListener("click", () => {
-        playRound("paper");
-      });
-
-      const scissors = document.querySelector(".scissors");
-      scissors.addEventListener("click", () => {
-        playRound("scissors");
-      });
-
-      // The buttons representing the player selection
-    </script>
+    <p class="results"></p>
+    <div class="button-bar">
+      <button class="btn rock">Rock</button>
+      <button class="btn paper">Paper</button>
+      <button class="btn scissors">Scissors</button>
+    </div>
+    <footer>Made By Haxaru</footer>
   </body>
 </html>
-
-<!--
--->
