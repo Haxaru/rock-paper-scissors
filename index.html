@@ -6,97 +6,112 @@
     <title>Document</title>
   </head>
   <body>
+    <button class="rock">Rock</button>
+    <button class="paper">Paper</button>
+    <button class="scissors">Scissors</button>
+    <div class="container">
+      <p class="results"></p>
+      <p class="player"></p>
+      <p class="computer"></p>
+    </div>
     <script>
-      const computerChoice = ["rock", "paper", "scissors"];
-
       function getComputerChoice() {
-        const selected =
-          computerChoice[Math.floor(Math.random() * computerChoice.length)];
+        const computerChoice = ["rock", "paper", "scissors"];
 
-        return selected;
+        return computerChoice[
+          Math.floor(Math.random() * computerChoice.length)
+        ];
       }
+
+      // The above generates the computer choice and logs it
 
       let playerPoints = 0;
       let computerPoints = 0;
       let totalRounds = 0;
 
+      // The above is the starting points for the game
+
+      const results = document.querySelector(".results");
+      const playerDisplay = document.querySelector(".player");
+      const computerDisplay = document.querySelector(".computer");
+
+      // The linking to the classes
+
       function playRound(playerSelection, computerSelection) {
-        playerSelection = prompt(
-          "Choose rock, paper, or scissors: ",
-          ""
-        ).toLowerCase();
+        playerSelection;
         computerSelection = getComputerChoice();
 
-        if (playerSelection === "rock" && computerSelection === "paper") {
+        if (playerSelection == "rock" && computerSelection === "paper") {
           computerPoints++;
-          totalRounds++;
-          return "You lose! Paper beats Rock!";
+          results.textContent = "You lose! Paper beats Rock!";
         } else if (
-          playerSelection === "rock" &&
+          playerSelection == "rock" &&
           computerSelection === "scissors"
         ) {
           playerPoints++;
-          totalRounds++;
-          return "You win! Rock beats Scissors!";
+          results.textContent = "You win! Rock beats Scissors!";
         } else if (
           playerSelection === "paper" &&
           computerSelection === "scissors"
         ) {
           computerPoints++;
-          totalRounds++;
-          return "You lose! Scissors beats Paper!";
+          results.textContent = "You lose! Scissors beats Paper!";
         } else if (
           playerSelection === "paper" &&
           computerSelection === "rock"
         ) {
           playerPoints++;
-          totalRounds++;
-          return "You win! Paper beats Rock!";
+          results.textContent = "You win! Paper beats Rock!";
         } else if (
           playerSelection === "scissors" &&
           computerSelection === "rock"
         ) {
           computerPoints++;
-          totalRounds++;
-          return "You lose! Rock beats Scissors!";
+          results.textContent = "You lose! Rock beats Scissors!";
         } else if (
           playerSelection === "scissors" &&
           computerSelection === "paper"
         ) {
           playerPoints++;
-          totalRounds++;
-          return "You win! Scissors beats Paper!";
+          results.textContent = "You win! Scissors beats Paper!";
         } else if (playerSelection === computerSelection) {
-          totalRounds++;
-          return "It's a tie!";
+          results.textContent = "It's a tie!";
         } else {
-          totalRounds++;
-          return "Input not recognized! Defaulting to a tie!";
+          results.textContent = "Input not recognized! Defaulting to a tie!";
+        }
+        totalRounds++;
+
+        playerDisplay.textContent = playerPoints;
+        computerDisplay.textContent = computerPoints;
+
+        if (playerPoints === 5) {
+          results.textContent = `Yay! You win with a score of ${playerPoints} to ${computerPoints}!`;
+        } else if (computerPoints === 5) {
+          results.textContent = `Sorry! You lose with a score of ${playerPoints} to ${computerPoints}!`;
         }
       }
 
-      function game() {
-        console.log(playRound());
-        console.log(playRound());
-        console.log(playRound());
-        console.log(playRound());
-        console.log(playRound());
+      // The above relays the outcome of the game.
 
-        if (playerPoints > computerPoints) {
-          console.log(
-            `Yay! You win with a score of ${playerPoints} to ${computerPoints}!`
-          );
-        } else if (playerPoints === computerPoints) {
-          console.log(
-            `That was so close! It's a tie with a score of ${playerPoints} to ${computerPoints}!`
-          );
-        } else {
-          console.log(
-            `Sorry! You lose with a score of ${playerPoints} to ${computerPoints}!`
-          );
-        }
-      }
-      game();
+      const rock = document.querySelector(".rock");
+      rock.addEventListener("click", () => {
+        playRound("rock");
+      });
+
+      const paper = document.querySelector(".paper");
+      paper.addEventListener("click", () => {
+        playRound("paper");
+      });
+
+      const scissors = document.querySelector(".scissors");
+      scissors.addEventListener("click", () => {
+        playRound("scissors");
+      });
+
+      // The buttons representing the player selection
     </script>
   </body>
 </html>
+
+<!--
+-->

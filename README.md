@@ -9,3 +9,7 @@ Refresh to play again.
 A big thanks to the people on Discord (The Odin Project server) for guiding me in the right direction when I was unsure of what to do.
 
 I hope you enjoy this little game I created! :)
+
+An update:
+
+I was finally able to add a very simple ui to my rock paper scissors game. The thing I struggled with most was adding the event listener to the buttons and making them represent the player selection. After that, the rest of the project was finished easily.
